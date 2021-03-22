@@ -1,0 +1,11 @@
+.thumb {
+  display: flex;
+}
+
+.poster {
+  display: block;
+}
+
+.fimsDescr {
+  padding-left: 40px;
+}

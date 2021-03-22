@@ -1,0 +1,13 @@
+.navList {
+  display: flex;
+  list-style: none;
+  padding-left: 10px;
+}
+
+.navLink:not(:last-child) {
+  margin-right: 10px;
+}
+
+.activeNavLink {
+  color: palevioletred;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchCast } from '../../ApiServise';
+import { withRouter } from 'react-router-dom';
 
 class Cast extends Component {
   state = {
@@ -33,4 +34,4 @@ class Cast extends Component {
     );
   }
 }
-export default Cast;
+export default withRouter(Cast);

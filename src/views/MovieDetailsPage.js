@@ -19,8 +19,9 @@ class MovieDetailsPage extends Component {
 
   componentDidMount() {
     const { movieId } = this.props.match.params;
-    console.log();
     fetchFilmDetails(movieId).then(film => this.setState({ ...film }));
+
+    console.log(this.props.location);
   }
 
   handleGoBack = () => {
@@ -62,16 +63,34 @@ class MovieDetailsPage extends Component {
           <p>Additional information</p>
           <ul>
             <li>
-              <Link to={`${this.props.match.url}/cast`}>Cast</Link>
+              <Link
+                to={{
+                  pathname: `${this.props.match.url}/cast`,
+                  state: {
+                    from: this.props.location.state.from,
+                  },
+                }}
+              >
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to={`${this.props.match.url}/reviews`}>Reviews</Link>
+              <Link
+                to={{
+                  pathname: `${this.props.match.url}/reviews`,
+                  state: {
+                    from: this.props.location.state.from,
+                  },
+                }}
+              >
+                Reviews
+              </Link>
             </li>
           </ul>
-          <Suspense fallback={<h3>Please wait...</h3>}>
-            <Route path={routes.cast} component={Cast} />
-            <Route path={routes.reviewes} component={Reviews} />
-          </Suspense>
+          {/* <Suspense fallback={<h3>Please wait...</h3>}> */}
+          <Route path={routes.cast} component={Cast} />
+          <Route path={routes.reviewes} component={Reviews} />
+          {/* </Suspense> */}
         </div>
       </>
     );
